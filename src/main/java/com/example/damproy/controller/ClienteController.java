@@ -25,6 +25,7 @@ import com.example.damproy.domain.Cliente;
 import ch.qos.logback.classic.Logger;
 
 @RestController
+// @Api(value="ClienteRest",description="Permitegestionarlosclientes..")
 @RequestMapping("/api/cliente")
 public class ClienteController {
 
@@ -61,6 +62,13 @@ public class ClienteController {
     }
 
     @PutMapping(path = "/{id}")
+    // @ApiOperation(value="Actualizauncliente")
+    //     @ApiResponses(value={
+    //     @ApiResponse(code=200,message="Actualizadocorrectamente"),
+    //     @ApiResponse(code=401,message="Noautorizado"),
+    //     @ApiResponse(code=403,message="Prohibido"),
+    //     @ApiResponse(code=404,message="ElIDnoexiste")
+    // })
     public ResponseEntity<Cliente> actualizar(@RequestBody Cliente nuevo, @PathVariable Integer id) {
         OptionalInt indexOpt = IntStream.range(0, listaClientes.size())
                 .filter(i -> listaClientes
